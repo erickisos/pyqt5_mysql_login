@@ -17,7 +17,7 @@ def connection():
     username=st.text(
         min_size=8,
         max_size=21,
-        alphabet=characters(whitelist_categories=['L']),
+        alphabet=characters(whitelist_categories=['L', 'N']),
     ),
     password=st.text(min_size=8, max_size=24),
 )
