@@ -9,7 +9,7 @@ def main():
     app = QApplication(sys.argv)
     engine = QQmlApplicationEngine()
 
-    engine.load(QUrl(":/views/login.qml"))
+    engine.load(QUrl("views/login.qml"))
 
     if not engine.rootObjects():
         sys.exit(-1)
