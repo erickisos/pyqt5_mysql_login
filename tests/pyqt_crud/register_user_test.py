@@ -1,16 +1,16 @@
+from hypothesis import HealthCheck, given, settings
+from hypothesis import strategies as st
 from hypothesis.strategies._internal.core import characters
 from pytest import fixture
-from hypothesis import given, settings, HealthCheck
-from hypothesis import strategies as st
-from pyqt_crud.models.user import User
 
-from pyqt_crud.services import database
 from pyqt_crud.controllers import user as ts
+from pyqt_crud.models.user import User
+from pyqt_crud.services import database
 
 
 @fixture
 def connection():
-    return database.connect(':memory:?cache=shared')
+    return database.connect(':memory:')
 
 
 @given(
@@ -28,5 +28,4 @@ def test_register_user(connection, username, password):
     expected = User(username, password)
     controller.register(expected)
 
-    actual = controller.fetch(username, password)
-    assert expected == actual
+    assert controller.login(username, password)
