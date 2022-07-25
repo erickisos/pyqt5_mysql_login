@@ -14,7 +14,7 @@ pydantic = "^1.9.0"
 
 [tool.poetry.dev-dependencies]
 tox = "^3.25.0"
-mypy = "^0.950"
+mypy = "^0.971"
 black = "^22.3.0"
 isort = "^5.10.1"
 bandit = "^1.7.4"
